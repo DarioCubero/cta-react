@@ -9,3 +9,14 @@
 .poster {
   width: 200px
 }
+
+body {
+background-color: black;
+color: white;
+padding: 30px;
+}
+
+.border {
+  border: 2px solid white;
+  padding: 20px;
+}

@@ -1,47 +1,17 @@
-import { useState } from "react"
-import Character from "./Character"
+import CharacterCard from "./CharacterCard";
 
-const CharactersList = ({dataChars, maximum}) => {
-
-  const [name, setName] = useState("")
-  const [race, setRace] = useState("")
-
-  const addCharacter = () =>
-    dataChars.setCharacters([...dataChars.characters, { name, race }])
-
-  const handlerName = event => setName(event.target.value)
-  const handlerRace = event => setRace(event.target.value)
-
-  const seePosition = index => alert(dataChars.characters[index].name)
-
+const CharactersList = ({ dataChars, maximum }) => {
   return (
-    <div>
-      <div>
-        <p>Nombre: <input type="text" onChange={handlerName} /></p>
-        <p>
-          Raza:
-          <select id="raceChar" onChange={handlerRace}>
-            <option value="">Humano</option>
-            <option value="supersaiyan">Supersaiyan</option>
-            <option value="namekiano">Namekiano</option>
-          </select>
-        </p>
-      </div>
-
-      <button onClick={addCharacter}>Añadir nuevo</button>
-      <button onClick={() => seePosition(maximum)}>Alerta del maximum</button>
-
+    <div class="border">
+      <h1>*List</h1>
+      <h2>Childs---Character</h2>
       <ul>
-        {
-          dataChars
-            .characters
-            .map((character, index) =>
-              <Character charData={character} key={index} />
-            )
-        }
+        {dataChars.characters.map((character, index) => (
+          <CharacterCard charData={character} key={index} />
+        ))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default CharactersList
+export default CharactersList;

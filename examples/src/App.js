@@ -4,6 +4,15 @@ import "./App.css"
 import dbImg from "./assets/images/dragon-ball.jpg"
 
 import CharactersList from "./components/CharacterList"
+import CharacterAdd from "./components/CharacterAdd"
+
+function CallBack (childData){
+  return (
+    <div>
+      <p>Message from Add Child - {childData}</p>
+    </div>
+  )
+}
 
 // Function
 const App = () => {
@@ -45,6 +54,8 @@ const App = () => {
       <button onClick={increaseMaximum}>Incrementar</button>
 
       <CharactersList dataChars={{characters, setCharacters}} maximum={maximum}/>
+
+      <CharacterAdd handleCallback={CallBack} characters={characters} maximum={maximum} ></CharacterAdd>
     </div>
   )
 }
